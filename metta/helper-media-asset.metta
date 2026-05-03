@@ -17,3 +17,10 @@
      (MediaAsset $id (type $mime-type) $created $creator $params
                  $quality $pbrief $pscript $path $size)
      $id))
+
+; asset lineage
+(= (asset-lineage $id)
+   (match &self
+     (MediaAsset $id $type $created $creator $params
+                 $quality $pbrief $pscript $path $size)
+     (lineage (asset $id) $pbrief $pscript)))
